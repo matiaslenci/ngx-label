@@ -1,27 +1,56 @@
-# NgxLabel
+# Ngx Label
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
+The `LabeledInputDirective` is designed to simplify the creation of labels and input fields in Angular forms. This directive allows adding a label and an input field in a single element.
 
-## Development server
+Additionally, it also allows adding an asterisk `(*)` to required texts to highlight mandatory fields in the form.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Install
 
-## Code scaffolding
+```bash
+npm i ngx-labeled-input
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Usage
 
-## Build
+To use the directive, you need to add the `label` attribute to your input.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```html
+<input type="text" label="Name">
+```
 
-## Running unit tests
+To add an asterisk `(*)` to the required text, you need to add the `isRequired` attribute to the input.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```html
+<input type="text" label="Name" isRequired>
+```
 
-## Running end-to-end tests
+You can modify the styles of the `(*)` in the global CSS styles of the project or by renaming the `required` class in the directive.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```css
+.required {
+  color: red;
+}
+```
 
-## Further help
+## Advantages
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The advantages offered by the directive are:
+
+1. Simplifies the creation of labels and inputs in Angular forms.
+2. Allows adding an asterisk `(*)` to required texts to highlight mandatory fields.
+3. Reduces the code needed to create labels and inputs in Angular forms.
+
+## Example
+
+Without using the directive, the HTML code to create a label and an input field might look like this:
+
+```html
+  <label for="name">Name:</label>
+  <input type="text" class="form-control" id="name" name="name" required>
+```
+
+With the directive, the equivalent HTML code would be:
+
+```html
+<input type="text" label="Name" isRequired>
+```
